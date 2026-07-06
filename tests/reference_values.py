@@ -1,0 +1,27 @@
+"""Hand-verified reference numbers shared across the test suite.
+
+Canonical parameter set: S=100, K=100, r=0.05, sigma=0.20, T=1, q=0
+(Hull's worked example).
+"""
+S = 100.0
+K = 100.0
+R = 0.05
+SIGMA = 0.20
+T = 1.0
+Q = 0.0
+
+D1 = 0.35
+D2 = 0.15
+
+CALL_PRICE = 10.450583572185565
+PUT_PRICE = 5.573526022256971
+
+# vega & rho per unit, theta per year
+DELTA_CALL = 0.6368306511756191
+DELTA_PUT = -0.3631693488243809
+GAMMA = 0.018762017345846895
+VEGA = 37.52403469169379
+THETA_CALL = -6.414027546438197
+THETA_PUT = -1.657880423934626
+RHO_CALL = 53.232481545376345
+RHO_PUT = -41.89046090469506
