@@ -21,7 +21,6 @@ def binomial_price(
     steps: int = 500,
     q: float = 0.0,
 ) -> float:
-    """CRR binomial tree, backward induction. Handles european and american."""
     validate_positive("S", S)
     validate_positive("K", K)
     validate_positive("sigma", sigma)
@@ -48,7 +47,7 @@ def binomial_price(
 
     for _ in range(steps):
         values = disc * (p * values[1:] + (1 - p) * values[:-1])
-        spots = spots[:-1] * u  # spots one step earlier
+        spots = spots[:-1] * u
         if exercise == "american":
             if option_type == "call":
                 values = np.maximum(values, spots - K)

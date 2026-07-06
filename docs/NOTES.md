@@ -1,32 +1,32 @@
 # Learning Journal
 
 One section per module. Fill each in **before and while** you implement that
-module — the comprehension questions come from [`RESOURCES.md`](RESOURCES.md).
-Write in your own words: this journal is what you will actually rehearse before
+module. The comprehension questions come from [`RESOURCES.md`](RESOURCES.md).
+Write in your own words. This journal is what you actually rehearse before
 interviews, and re-deriving a formula from your own notes is the test of whether
 you understood it or just typed it.
 
 For each module, complete the five prompts:
-- **What I read** — the exact Hull sections / links, so you can find them again.
-- **Key formula** — the formula(s), written out, with each symbol defined.
-- **Derivation sketch (my own words)** — how you'd rebuild it from scratch at a
+- **What I read**: the exact Hull sections / links, so you can find them again.
+- **Key formula**: the formula(s), written out, with each symbol defined.
+- **Derivation sketch (my own words)**: how you'd rebuild it from scratch at a
   whiteboard. Not a copy of the book.
-- **What confused me** — the sticking point and how you resolved it. This is the
+- **What confused me**: the sticking point and how you resolved it. This is the
   most valuable part; keep it honest.
-- **Interview questions I should be able to answer** — start from the RESOURCES
-  questions, add any a friend/interviewer might ask, and write your answers.
+- **Interview questions I should be able to answer**: start from the RESOURCES
+  questions, add any a friend or interviewer might ask, and write your answers.
 
 ---
 
-## 1. Black-Scholes — `black_scholes.py`
+## 1. Black-Scholes (`black_scholes.py`)
 
 **What I read**
 >
 
 **Key formula**
-> Call: C = …
-> Put:  P = …
-> d1 = … , d2 = …
+> Call: C = ...
+> Put:  P = ...
+> d1 = ... , d2 = ...
 
 **Derivation sketch (my own words)**
 >
@@ -42,14 +42,14 @@ For each module, complete the five prompts:
 
 ---
 
-## 2. Greeks — `greeks.py`
+## 2. Greeks (`greeks.py`)
 
 **What I read**
 >
 
 **Key formula**
-> delta_call = … , delta_put = …
-> gamma = … , vega = … , theta = … , rho = …
+> delta_call = ... , delta_put = ...
+> gamma = ... , vega = ... , theta = ... , rho = ...
 
 **Derivation sketch (my own words)**
 >
@@ -65,13 +65,13 @@ For each module, complete the five prompts:
 
 ---
 
-## 3. Implied volatility — `implied_vol.py`
+## 3. Implied volatility (`implied_vol.py`)
 
 **What I read**
 >
 
 **Key formula**
-> Solve f(σ) = BS_price(σ) − market_price = 0 for σ.
+> Solve f(sigma) = BS_price(sigma) - market_price = 0 for sigma.
 
 **Derivation sketch (my own words)**
 >
@@ -81,20 +81,20 @@ For each module, complete the five prompts:
 
 **Interview questions I should be able to answer**
 > - Why is implied vol unique for a valid price?
-> - Brent vs Newton — trade-offs, and when Newton fails.
+> - Brent vs Newton: trade-offs, and when Newton fails.
 > - What are the no-arbitrage bounds on a call, and how do you handle a violation?
 > - (add your own)
 
 ---
 
-## 4. Binomial tree — `binomial.py`
+## 4. Binomial tree (`binomial.py`)
 
 **What I read**
 >
 
 **Key formula**
-> u = e^{σ√Δt}, d = 1/u, a = e^{(r−q)Δt}, p = (a−d)/(u−d)
-> node value = e^{−rΔt}(p·V_up + (1−p)·V_down); American: max(that, intrinsic)
+> u = e^(sigma*sqrt(dt)), d = 1/u, a = e^((r-q)*dt), p = (a-d)/(u-d)
+> node value = e^(-r*dt) * (p*V_up + (1-p)*V_down); American: max(that, intrinsic)
 
 **Derivation sketch (my own words)**
 >
@@ -110,14 +110,14 @@ For each module, complete the five prompts:
 
 ---
 
-## 5. Monte Carlo — `monte_carlo.py`
+## 5. Monte Carlo (`monte_carlo.py`)
 
 **What I read**
 >
 
 **Key formula**
-> S_T = S·exp((r−q−σ²/2)T + σ√T·Z), Z~N(0,1)
-> price ≈ e^{−rT}·mean(payoff); std_error = e^{−rT}·std(payoff)/√n
+> S_T = S*exp((r-q-sigma^2/2)*T + sigma*sqrt(T)*Z), Z ~ N(0,1)
+> price ~ e^(-r*T)*mean(payoff); std_error = e^(-r*T)*std(payoff)/sqrt(n)
 
 **Derivation sketch (my own words)**
 >
@@ -133,13 +133,13 @@ For each module, complete the five prompts:
 
 ---
 
-## 6. Market data — `market_data.py`
+## 6. Market data (`market_data.py`)
 
 **What I read**
 >
 
 **Key formula / schema**
-> Required columns: … ; derived: time_to_expiry = (expiry − quote)/365.
+> Required columns: ... ; derived: time_to_expiry = (expiry - quote)/365.
 
 **Derivation sketch (my own words)**
 > (Trace what the loader does to one row.)
@@ -149,19 +149,19 @@ For each module, complete the five prompts:
 
 **Interview questions I should be able to answer**
 > - What does the loader guarantee downstream vs require as input?
-> - Calendar-day vs trading-day time to expiry — effect on IV?
+> - Calendar-day vs trading-day time to expiry: effect on IV?
 > - (add your own)
 
 ---
 
-## 7. IV surface — `surface.py`
+## 7. IV surface (`surface.py`)
 
 **What I read**
 >
 
 **Key formula / idea**
-> For each quote: σ_impl = implied_volatility(price, S, K, r, T, type, q).
-> Arrange σ_impl on a (strike, time_to_expiry) grid; plot in 3D.
+> For each quote: sigma_impl = implied_volatility(price, S, K, r, T, type, q).
+> Arrange sigma_impl on a (strike, time_to_expiry) grid; plot in 3D.
 
 **Derivation sketch (my own words)**
 >

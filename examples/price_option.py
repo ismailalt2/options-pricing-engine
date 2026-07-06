@@ -66,7 +66,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.method == "mc":
         print(f"  std_error = {result.std_error:.6f}")
 
-    # analytic Greeks only make sense for the closed-form model
+    # greeks only for the closed-form price
     if args.method == "bs":
         print("  Greeks:")
         print(f"    delta = {delta(S, K, r, sig, T, kind, q=q):+.6f}")

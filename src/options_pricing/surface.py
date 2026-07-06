@@ -8,7 +8,6 @@ from .validation import validate_option_type
 
 
 def build_iv_surface(chain: pd.DataFrame, option_type: str = "call") -> pd.DataFrame:
-    """Invert every quote in the chain and pivot into a strike x expiry grid."""
     option_type = validate_option_type(option_type)
     data = chain[chain["option_type"] == option_type].copy()
 
@@ -25,7 +24,7 @@ def build_iv_surface(chain: pd.DataFrame, option_type: str = "call") -> pd.DataF
                 q=row.dividend_yield,
             )
         except ValueError:
-            iv = np.nan  # price outside no-arbitrage bounds, leave a hole
+            iv = np.nan  # outside no-arb bounds
         ivs.append(iv)
 
     data["implied_vol"] = ivs

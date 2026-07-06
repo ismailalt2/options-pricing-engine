@@ -33,7 +33,6 @@ def monte_carlo_price(
     q: float = 0.0,
     seed: int | None = None,
 ) -> MCResult:
-    """European option price by simulating S_T directly (exact GBM step)."""
     validate_positive("S", S)
     validate_positive("K", K)
     validate_positive("sigma", sigma)
@@ -62,7 +61,6 @@ def monte_carlo_price(
     payoffs = np.exp(-r * T) * payoffs
 
     if antithetic:
-        # average each Z with its mirror -Z, then treat the pairs as the samples
         pairs = (payoffs[:half] + payoffs[half:]) / 2
         price = pairs.mean()
         std_error = pairs.std(ddof=1) / np.sqrt(half)

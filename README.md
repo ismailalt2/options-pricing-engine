@@ -186,9 +186,9 @@ Using:
 
 Additional project documentation is available in the `docs/` directory.
 
-- **ROADMAP.md** — implementation plan
-- **RESOURCES.md** — references and study material
-- **NOTES.md** — learning notes
+- **ROADMAP.md**: implementation plan
+- **RESOURCES.md**: references and study material
+- **NOTES.md**: learning notes
 
 ---
 
